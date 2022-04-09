@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "config": "^3.3.7",
+    "mineflayer": "^4.2.0",
+    "mineflayer-pathfinder": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/config": "^0.0.41"
+  }
+}
