@@ -3,6 +3,7 @@ import { pathfinder, Movements, goals } from "mineflayer-pathfinder";
 import MinecraftData from "minecraft-data";
 import { eat } from "../action/eat";
 import { BotOption } from "./option";
+import { errorf } from "../utils/log";
 
 export function createBot(opt: BotOption) {
 	const { host, username, admin, version, password, auth } = opt;
@@ -67,5 +68,9 @@ export function createBot(opt: BotOption) {
 		if (bot.food <= 7 || bot.health <= 12) {
 			eat(bot, data);
 		}
+	});
+
+	bot.on("error", (err) => {
+		errorf(bot.username, "", err);
 	});
 }

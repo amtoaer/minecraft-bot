@@ -1,7 +1,11 @@
 import { getLogger, configure } from "log4js";
 import { option } from "../bot/option";
 
-type logFunction = (username: string, action: string, error: any) => void;
+type logFunction = (
+	username: string,
+	action: string,
+	error: Error | string
+) => void;
 
 let logFile = option.logfile || "bot.log";
 let logLevel = option.loglevel || "error";
@@ -13,7 +17,11 @@ configure({
 
 const logger = getLogger();
 
-function getLogStr(username: string, action: string, err: any): string {
+function getLogStr(
+	username: string,
+	action: string,
+	err: Error | string
+): string {
 	return `${username} when ${action} : ${err}`;
 }
 
