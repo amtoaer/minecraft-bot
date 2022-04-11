@@ -64,7 +64,7 @@ export function createBot(opt: BotOption) {
 	});
 
 	bot.on("health", async () => {
-		if (bot.food <= 7) {
+		if (bot.food <= 7 || bot.health <= 12) {
 			eat(bot, data);
 		}
 	});
