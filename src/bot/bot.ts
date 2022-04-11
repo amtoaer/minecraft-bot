@@ -14,6 +14,10 @@ export function createBot(opt: BotOption) {
 	const data = MinecraftData(bot.version);
 
 	bot.loadPlugin(pathfinder);
+
+	const move = new Movements(bot, data);
+	move.canDig = false; // do not dig
+	move.allow1by1towers = false; //do not build 1*1 towers when going up
 	bot.pathfinder.setMovements(new Movements(bot, data));
 
 	bot.once("spawn", async () => {
